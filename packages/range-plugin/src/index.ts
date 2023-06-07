@@ -687,7 +687,9 @@ export class RangePlugin extends BasePlugin implements IPlugin {
     const end = this.getEndDate();
 
     if (end && this.triggerElement === this.picker.options.element) {
-      this.picker.datePicked[0] = end;
+      if (this.picker.datePicked.length <= 1 ) {
+        this.picker.datePicked[0] = end;
+      }
     }
 
     if (start && this.triggerElement === this.options.elementEnd) {
